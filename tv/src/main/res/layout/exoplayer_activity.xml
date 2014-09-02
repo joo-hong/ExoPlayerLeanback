@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
+
+    <com.google.android.exoplayer.VideoSurfaceView android:id="@+id/surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"/>
+<!--
+    <View android:id="@+id/shutter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"/>
+-->
+    <RelativeLayout
+        android:id="@+id/exo_controllers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/surface_view"
+        android:layout_alignLeft="@+id/surface_view"
+        android:layout_alignRight="@+id/surface_view"
+        android:layout_alignTop="@+id/surface_view"
+        android:layout_centerInParent="true"
+        android:background="@drawable/player_bg_gradient_dark" >
+
+        <ProgressBar
+            android:id="@+id/exo_progressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true" >
+
+            <ImageView
+                android:id="@+id/exo_playpause"
+                android:contentDescription="@+id/play_pause_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/ic_play_playcontrol_normal" />
+
+            <TextView
+                android:id="@+id/exo_startText"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/playpause"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@+id/init_text"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/exo_endText"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@+id/init_text"
+                android:textColor="@color/white" />
+
+            <SeekBar
+                android:id="@+id/exo_seekBar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/exo_endText"
+                android:layout_toRightOf="@+id/exo_startText" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</FrameLayout>
